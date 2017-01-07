@@ -1,1 +1,3 @@
-*.esproj
+*.codekit3
+*._
+*.DS_Store

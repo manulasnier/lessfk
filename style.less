@@ -1,23 +1,27 @@
-@charset "UTF-8";
+@charset "utf-8";
+/* --- LESSFK - manulasnier.com - v2.0 */
+
+// FONTS
+@import "assets/fonts.less";
 
 // CSS Reset
-@import "common/reset.less";
+@import "assets/reset.less";
 
-// Common
-@import "common/var.less";
-@import "common/mixins.less";
-@import "common/typo.less";
+// VAR
 
-// IE spec
-@import "common/ie.less";
+@fontcolor: #333;
+@black: #111;
+@grisclair: #eee;
+@grisfonce: #aaa;
 
-// Media Queries
-//@import "common/mq.less";
-@import "content/layout960.less";
+@color: #333;
+@color2: #999;
 
-//plugins
-@import "plugins/flexslider.less";
-@import "plugins/lightbox.less";
-@import "plugins/scrolltotop.less";
+// MIXINS
+@import "assets/mixins.less";
 
+// STYLES
+@import "assets/global.less";
 
+// RESPONSIVE
+@import "assets/responsive.less";
