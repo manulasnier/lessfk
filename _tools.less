@@ -1,0 +1,266 @@
+////// TOOLS //////
+
+// BOUTONS 
+
+.btn {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border: 1px solid @color;
+    .rounded(3px);
+    padding: 0 10px;
+    
+    &:hover {
+		background-color: @color;
+		color:  #fff;
+	}
+	
+	i {
+		margin-right: 10px;
+		font-size: 2rem;
+		&:only-child {
+			margin-right: 0;
+		}
+	}
+	
+	span {
+		text-transform: uppercase;
+	}
+	
+	&.del {
+		border-color: @alert;
+		color: @alert;
+		&:hover {
+			background-color: @alert;
+			color: #fff;
+		}
+	}
+}
+
+// PAGINATION // fonctionne avec list-min
+
+.pager {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    
+    li {
+        margin-right: 10px;
+        
+        &:only-child {
+            display: none;
+        }
+        
+        a {
+        	display: flex;
+        	align-items: center;
+        	justify-content: center;
+            background-color: #eee;
+            .rounded(50%);
+            color: #333;
+            height: 30px;
+            width: 30px;
+            &:hover {
+                background-color: @color;
+                color: #fff;
+            }
+        }
+        
+        &.active {
+            a {
+                background-color: @color;
+                color: #fff;
+            }
+        }
+        
+        &.disabled {
+            a,a:hover {
+                background-color: #fff;
+                color: #333;
+                cursor: default;
+            }
+        }
+    }
+} // pager
+
+
+// ONGLETS
+
+.onglets {
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 50px;
+		min-height: 40px;
+		text-transform: uppercase;
+		background-color: #eee;
+		
+		&.actif {
+			background-color: tint(@color2, 20%);
+			color: #fff;
+		}
+	}
+} // onglets
+
+// POPUP 
+
+body {
+	&.mode-popup {
+		&::after {
+			display: block;
+			content: '';
+			position: fixed;
+			height: 100vh;
+			top: 0;
+			left: 0;
+			right: 0;
+			background-color: rgba(0,0,0,0.7);
+			z-index: 9998;
+		}
+	}
+}
+
+.popup {
+    display: none;
+    
+    &.open {
+		display: block;
+		background-color: #fff;
+		color: #333;
+		text-align: right;
+		position: fixed;
+		top: 10%;
+		left: 50%;
+		height: auto;
+		width: 90%;
+		max-width: 790px;
+		margin-left: -395px;
+		z-index: 9999;
+		padding: 15px;
+		.rounded(3px);
+		
+		@media screen and (max-width: 880px) { /* 640 */
+	        left: 5%;
+	        right: 5%;
+	        width: auto;
+	        max-width: 90%;
+	        margin-left: 0;
+		}
+		
+		@media screen and (max-width: 639px) { /* 640 */
+	        left: 0;
+	        right: 0;
+	        max-width: 100%;
+	        top: 0;
+	        bottom: 0;
+	        overflow-y: scroll;
+		}
+		
+		h3 {
+			text-transform: uppercase;
+			font-weight: 700;
+			font-size: 1.8rem;
+			margin-bottom: 20px;
+			text-align: left;
+		}
+		
+		.cols {
+			display: flex;
+			justify-content: space-between;
+			
+			> div {
+				&:first-child {
+					margin-right: 20px;
+				}
+			}
+		}
+	}
+	
+	.close-popup {
+	    position: absolute;
+	    right: 10px;
+	    top: 10px;
+	    color: #333;
+	    
+	    i {
+			font-size: 2.8rem;
+		}
+		
+		&:hover {
+			color: @color2;
+		}
+		
+		@media screen and (max-width: 639px) {
+			position: fixed;
+		}
+	}
+} // popup
+
+// MESSAGES
+
+.msg {
+	overflow: hidden;
+	position: absolute;
+	top: 100px;
+	left: 0;
+	z-index: 999;
+	width: 100%;
+	height: 0;
+	padding-left: 80px;
+	font-size: 18px;
+	text-transform: uppercase;
+	margin: auto;
+	padding-top: 0;
+	transition: all ease .15s;
+	opacity: 0;
+	color: #fff;
+	
+    &::before {
+        .picto-font;
+        position: absolute;
+        left: 15px;
+        top: 9px;
+        font-size: 2.4rem;
+    }
+    
+    &.open {
+        height: 50px;
+        opacity: 1;
+        padding-top: 17px;
+    }
+    
+    &.valid {
+        background-color: fadeout(@valid, 10%);
+        &::before {
+             content: "\f00c"; // fa-check
+        }
+    }
+    
+    &.delete {
+        background-color: fadeout(@alert, 10%);
+        &::before {
+              content: "\f1f8"; // fa-trash
+        }
+    }
+
+    &.error {
+        background-color: fadeout(@alert, 10%);
+        &::before {
+             content: "\f05e"; // fa-ban
+        }
+    }
+
+    &.warning {
+        background-color: fadeout(@warning, 10%);
+        &::before {
+             content: "\f071"; // fa-exclamation-triangle
+        }
+    }   
+}

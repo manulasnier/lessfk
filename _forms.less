@@ -1,0 +1,261 @@
+//////// FORMS  ///////
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="search"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="tel"],
+textarea {
+	appearance: none;
+	border: 1px solid #eee;
+    color: @color;
+    padding: 0 10px;
+    height: 45px;
+    background-color: #eee;
+	font-size: 1.5rem;
+	font-family: inherit;
+    margin-bottom: 20px;
+    width: 100%;
+     .rounded(3px);
+    
+    &:focus {
+        outline: none;
+        color: @color2;
+        background-color: transparent;
+        border-color: @color2;
+    }
+}
+
+input[type="submit"],
+input[type="button"],
+button[type="submit"],
+button {
+	appearance: none;
+	border: 1px solid @color2;
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 0 10px;
+    height: 40px;
+    .rounded(3px);
+	background-color: @color2;
+	color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: transparent;
+        color: @color2;
+    }
+}
+
+.submit {
+	display: block;
+}
+
+textarea {	
+    resize: vertical;
+    padding: 10px;
+}
+
+label {
+    display: block;
+    text-transform: uppercase;
+    color: #666;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+    
+input::-placeholder {
+    font-style: italic;
+}
+
+textarea::-placeholder {
+   font-style: italic;
+}
+
+////// BOUTONS CHECKBOX /////
+
+.checkbox {
+	label {
+		color: #333;
+		font-family: @font;
+		text-transform: none;
+		display: flex;
+		position: relative;
+		
+		&::before {
+			content: '';
+			height: 20px;
+			width: 20px;
+			border: 1px solid #eee;
+			background-color: #eee;
+			.rounded(3px);
+			margin-right: 8px;
+		}
+	}
+	
+	input {
+		display: none;
+		
+		&:checked + label {
+			&::before {
+				background-color: #fff;
+				border-color: @color2;
+			}
+			
+			&::after {
+				position: absolute;
+				left: 3px;
+				top: 3px;
+				.picto-font;
+				content: "\f00c"; // fa-check				
+				color: @color2;
+				font-size: 1.4rem;
+			}
+		}
+	}		
+} // checkbox
+
+///// LISTE DE BOUTONS RADIO
+
+.list-radio {
+	margin-bottom: 13px;
+	
+	li {
+		margin-bottom: 5px;
+	}
+	
+	input {
+		display: none;
+		
+		& + label {
+			position: relative;
+			display: flex;
+			text-transform: none;
+			color: #333;
+			font-family: @font-admin;
+			
+			&::before {
+				content: '';
+				display: block;
+				width: 20px;
+				height: 20px;
+				margin-right: 10px;
+				background-color: #eee;
+				.rounded(50%);
+			}
+		}
+		
+		&:checked + label {
+			font-weight: 700;
+			
+			&::before {
+				border: 1px solid @color2;
+				background-color: #fff;
+			}
+			
+			&::after {
+				position: absolute;
+				left: 6px;
+				top: 6px;
+				content: '';
+				height: 8px;
+				width: 8px;
+				background-color: @color2;
+				.rounded(50%);
+			}
+		}
+	}
+} // list-radio
+
+//// BOUTONS //// 
+
+.btn {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border: 1px solid @color;
+    .rounded(3px);
+    padding: 0 10px;
+    
+    &:hover {
+		background-color: @color;
+		color:  #fff;
+	}
+	
+	i {
+		margin-right: 10px;
+		font-size: 2rem;
+		&:only-child {
+			margin-right: 0;
+		}
+	}
+	
+	span {
+		text-transform: uppercase;
+	}
+	
+	&.del {
+		border-color: @alert;
+		color: @alert;
+		&:hover {
+			background-color: @alert;
+			color: #fff;
+		}
+	}
+}
+
+// CAPTCHA
+
+#captcha {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 20px;
+	
+	img {
+		min-width: 100px;
+		height: auto;
+		margin-right: 10px;
+	}
+	
+	input[type="text"] {
+		max-width: 190px;
+		margin-bottom: 0;
+	}
+	
+	a {
+		height: 40px;
+		width: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-right: 20px;
+	}
+	
+	#reload {
+		height: 30px;
+		width: 30px;
+		
+	    .transition; 
+	    cursor: pointer;
+	    
+	    path {
+	    	fill: @color;
+	    }
+	    
+	    &:hover {
+	        .rotate(360deg);
+	        path {
+				fill: @color3;
+			}
+		}
+	}
+} // captcha
+
